@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/authByPhoneFragment">
+
+    <fragment
+        android:id="@+id/authByPhoneFragment"
+        android:name="com.epam.navigationproject.auth.AuthByPhoneFragment"
+        android:label="AuthByPhoneFragment"
+        tools:layout="@layout/fragment_auth_by_phone">
+        <action
+            android:id="@+id/action_authByPhoneFragment_to_smsCodeConfirmationFragment"
+            app:destination="@id/smsCodeConfirmationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/smsCodeConfirmationFragment"
+        android:name="com.epam.navigationproject.auth.SmsCodeConfirmationFragment"
+        android:label="SmsCodeConfirmationFragment"
+        tools:layout="@layout/fragment_sms_code_confirmation">
+        <action
+            android:id="@+id/action_smsCodeConfirmationFragment_to_createProfileFragment"
+            app:destination="@id/createProfileFragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createProfileFragment"
+        android:name="com.epam.navigationproject.auth.CreateProfileFragment"
+        android:label="CreateProfileFragment"
+        tools:layout="@layout/fragment_create_profile"/>
+
+</navigation>
